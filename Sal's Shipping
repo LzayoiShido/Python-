@@ -1,0 +1,35 @@
+import random#调用随机函数。
+random_weight=random.randint(1,100)#将随机数的范围限定在1-100之间，并赋值给random_weight
+#print(random_weight)
+weight=4.5#重量
+cost=" "
+#普通陆运
+if weight<=2:
+  ground_cost=20+1.50*weight
+elif weight<=6:
+  ground_cost=20+3.00*weight
+elif weight<=10:
+  ground_cost=20+4.00*weight
+else:
+  ground_cost=20+4.75*weight
+#print(f"Ground Shipping:{ground_cost}")
+#高级陆运费
+premium_cost=120
+#print(f"Ground Shipping Premium:{premium_cost}")
+#无人机运输费
+if weight<=2:
+  drone_cost=4.50*weight
+elif weight<=6:
+  drone_cost=9.00*weight
+elif weight<=10:
+  drone_cost=12.00*weight
+else:
+  drone_cost=14.25*weight
+#print(f"Drone Shipping:{drone_cost}")
+if ground_cost<premium_cost:#划算的运输方式选择，及费用的计算
+  if ground_cost<drone_cost:
+    print(f"Ground Shipping:${ground_cost}")
+  else:
+    print(f"Drone Shipping:${drone_cost}")
+else:
+  print(f"Ground Shipping Premium:${premium_cost}")
